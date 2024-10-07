@@ -125,6 +125,10 @@ header > a > span {
   font-weight: 600px;
 }
 
+.menu {
+  display: none;
+}
+
 nav {
   display: flex;
   align-items: center;
@@ -156,7 +160,7 @@ nav > *:not(#contact):hover {
   position: relative;
 }
 
-#contact svg {
+svg {
   height: 16px;
 }
 
@@ -192,12 +196,13 @@ nav > *:not(#contact):hover {
 #home .container {
   width: 95%;
   display: grid;
-  grid-template-columns: 2fr 2fr 1fr;
+  grid-template-columns: 3fr 1.5fr 1fr;
   gap: 3rem;
+  justify-content: center;
 }
 
 #home .container > * {
-  height: 300px;
+  min-height: 200px;
 }
 
 #latestWork {
@@ -210,6 +215,7 @@ nav > *:not(#contact):hover {
   position: relative;
   transition: all 0.4s ease;
   cursor: pointer;
+  min-width: 300px;
 }
 
 #latestWork:hover {
@@ -318,8 +324,8 @@ nav > *:not(#contact):hover {
 #years span {
   font-weight: 700;
   color: var(--primary);
-  font-size: 12rem;
-  letter-spacing: -35px;
+  font-size: 10vw;
+  letter-spacing: -2vw;
 }
 
 .more {
@@ -518,11 +524,15 @@ footer {
   gap: 12px;
 }
 
-.footerContent > ul > a {transition: all .1s ease;}
-.footerContent > ul > a:hover {color: var(--white);}
+.footerContent > ul > a {
+  transition: all 0.1s ease;
+}
+.footerContent > ul > a:hover {
+  color: var(--white);
+}
 
 .copyright {
-  font-size: .8rem;
+  font-size: 0.8rem;
   margin: auto;
   padding: 8vh 0;
   width: fit-content;
@@ -532,4 +542,26 @@ footer {
 .copyright span {
   font-weight: 700;
   color: var(--primary);
+}
+
+@media (max-width: 921px) {
+  .menu {
+    display: inline-block;
+  }
+  nav {
+    display: none;
+  }
+
+  #home .container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1.4fr .5fr;
+  }
+
+  #home .container #latestWork {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 300px) {
+  html {font-size: 10px;}
 }
